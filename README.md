@@ -77,6 +77,12 @@ Choose alerts for scheduled maintenance, in-game warnings, character death, fail
 
 [Notification settings screenshot](docs/images/notifications.png)
 
+## App updates
+
+In version 1.0.64 or newer, open **App updates** to check for a new release or install it. To install automatically when account operations are idle, turn on **Automatically install updates when idle**. Start the app from the protected desktop shortcut created by unattended setup. The manager restarts during an update and leaves running games open.
+
+If you're on 1.0.63 or older, download 1.0.64 manually once to get the updater.
+
 ## Downloads and validation
 
 The standalone EXE runs directly. The ZIP includes the same Windows x64 application as an extracted folder. Each release provides a SHA-256 checksum file. The release notes describe the validation performed for that version.
