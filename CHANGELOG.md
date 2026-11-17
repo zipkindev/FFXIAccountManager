@@ -1,5 +1,15 @@
 # Release notes
 
+## 1.0.68
+
+- **Reliable member selection:** improve PlayOnline member-list recognition at high DPI and resume eligible maintained accounts in the existing session, while still requiring the exact Square Enix ID.
+- **Faster, accurate connectivity checks:** a healthy internet check permits login immediately. Only an actual failed check starts stabilization: three successful checks five seconds apart, with bounded backoff during repeated failures. Accounts share checks; POL-0019 resumes its bounded Retry workflow after connectivity returns.
+- **Complete recovery tracking:** allow confirmed character entry to finish loading and verify the matching character/world with fresh traffic. Record delayed successful recovery without repeating login input, and display its recovery time.
+- **Clear update scheduling:** show the last and next app-update checks. Check shortly after startup and every 12 hours, with manual checks available anytime. Explain when automatic installation is idle; running games remain open.
+- Preserve manual stops, credential rejection, other-terminal protection, shared game-update queues, saved settings, and previously validated logins.
+
+Validation: 716 core checks plus dashboard/safety smoke checks passed. Native Windows OCR fixtures covered four resolutions. A live maintained-account login completed in the existing POL process, and 1.0.68 verified the delayed world entry and recovery timestamp without replaying input. Installation preserved all four game processes, settings and saved login validations; all four reported fresh connection evidence. Internet-outage and backoff cases were tested with simulated probes, without disrupting live networking.
+
 ## 1.0.64
 
 - The manager checks this releases repository on startup and every six hours. Open **App updates** to check manually or install an available version.

@@ -4,6 +4,8 @@ Launch, monitor, and recover multiple Final Fantasy XI accounts from one Windows
 
 [Download for Windows x64](https://github.com/zipkindev/FFXIAccountManager/releases/latest) · [Release notes](CHANGELOG.md)
 
+**App updates** checks the public releases page automatically. In 1.0.65 or newer, it shows the last and next checks and checks shortly after startup and every 12 hours while the manager stays open. You can install from the manager or turn on automatic installation when idle. Use the protected desktop shortcut from unattended setup to enable in-app installation. Running games stay open.
+
 ![Account Manager dashboard with multiple example accounts, distinct Windower profiles, and per-account controls](docs/images/dashboard.png)
 
 ## Quick start
@@ -44,7 +46,8 @@ Open **Bulk actions**, select the accounts, choose **Enable maintain connection*
 ## Login, recovery, and updates
 
 - **Verified login.** The manager identifies the configured POL member, checks masked password input, and verifies the expected character and world using the companion heartbeat and fresh server traffic. If focus or keyboard layout changes before password submission, it can discard the interrupted entry and retry once.
-- **Maintain connection.** The manager checks for recognized disconnect screens after repeated unhealthy connection reports. It can resume from character selection or restart the affected client when a confirmed error prevents recovery. For in-game **POL-2059** behind a HaupBridge overlay, it verifies the error and visible **OK** control, then uses the game’s Enter key. An open Windower console or an unconfirmed transition can pause recovery.
+- **Maintain connection.** The manager checks for recognized disconnect screens after repeated unhealthy connection reports. It can resume from the exact configured member or character selection, or restart the affected client when a confirmed error prevents recovery. For in-game **POL-2059** behind a HaupBridge overlay, it verifies the error and visible **OK** control, then uses the game’s Enter key. An open Windower console or an unconfirmed transition can pause recovery.
+- **Internet recovery precheck.** A successful connectivity check lets login proceed immediately. After an actual failed check, the manager waits for three successful checks five seconds apart; repeated failures back off up to 30 seconds. Accounts share checks without repeatedly taking focus. POL-0019 resumes its bounded Retry sequence after connectivity returns. Internet connectivity does not guarantee POL service availability.
 - **Other-terminal protection.** A confirmed **POL-1039** disables automatic recovery for that account and shows the reason on its card. An intentional manual launch is available through **Launch anyway**.
 - **Scheduled maintenance.** Official notices and in-game warnings appear in **Server maintenance**. Enable **Schedule server maintenance** per account to allow scheduled graceful shutdown. Maintained accounts can reconnect once the applicable maintenance ends. The card alert threshold controls how early notices appear on cards.
 - **Shared game updates.** The first client takes ownership of a required update. Other launches wait while it updates and reconnects. The manager resumes through a recognized completion screen and keeps a stalled updater available for inspection or resumption.
@@ -77,15 +80,9 @@ Choose alerts for scheduled maintenance, in-game warnings, character death, fail
 
 [Notification settings screenshot](docs/images/notifications.png)
 
-## App updates
+## Validation
 
-In version 1.0.64 or newer, open **App updates** to check for a new release or install it. To install automatically when account operations are idle, turn on **Automatically install updates when idle**. Start the app from the protected desktop shortcut created by unattended setup. The manager restarts during an update and leaves running games open.
-
-If you're on 1.0.63 or older, download 1.0.64 manually once to get the updater.
-
-## Downloads and validation
-
-The standalone EXE runs directly. The ZIP includes the same Windows x64 application as an extracted folder. Each release provides a SHA-256 checksum file. The release notes describe the validation performed for that version.
+Automated checks cover account identity, password-entry guards, connection recovery, update scheduling, OCR, installer rollback, and companion reports. Release notes distinguish live Windows validation from simulated outage and regression tests. This repository distributes documentation and Windows packages.
 
 ## License
 
