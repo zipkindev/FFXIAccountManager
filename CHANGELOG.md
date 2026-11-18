@@ -1,5 +1,13 @@
 # Release notes
 
+## 1.0.69
+
+- After confirmed POL-0003 Exit, recognize a stable exact-account Member List and continue the guarded login in the same POL process. Require verified character/world traffic before recording recovery.
+- Recheck unresolved Exit outcomes rather than permanently abandoning a usable POL session. Preserve outage stabilization, maintenance holds, manual stops, credential rejection and other-terminal protection.
+- Maintained member-list and recoverable service failures continue without an artificial retry-count stop or added backoff on healthy connectivity. Confirmed connectivity loss and maintenance retain their holds. Stop after two failed authentication attempts and show a warning; manual stops and other-terminal protection remain effective.
+
+Validation: 828 core checks, desktop/dashboard safety smoke checks and a native Windows package check passed. After installation, a naturally stalled account completed a full verified login in its original POL process and recorded the recovery time. All three game processes retained their identities and reported fresh matching session/server traffic; account settings and credential files were unchanged. The POL-0003 Exit-to-Member-List transition, outage handling and credential retry guards were covered by isolated regressions; no healthy game or live network was deliberately disrupted.
+
 ## 1.0.68
 
 - **Reliable member selection:** improve PlayOnline member-list recognition at high DPI and resume eligible maintained accounts in the existing session, while still requiring the exact Square Enix ID.
