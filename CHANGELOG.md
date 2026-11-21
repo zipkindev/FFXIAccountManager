@@ -1,5 +1,15 @@
 # Release notes
 
+## 1.0.70
+
+- Show true job/master progression separately from effective level-sync levels. Resolve the Exemplar target from its authoritative requirement instead of adding one to the synced master level. Display remaining EXP/Exemplar Points and the level-99 EXP cap.
+- Estimate EXP, Limit Points, Capacity Points and Exemplar rewards per hour from up to ten minutes of consecutive passive reward samples, including idle time. Show merit/JP reward equivalents without mistaking spending, caps or level transitions for gains.
+- Companion 0.5.0 reports unlocked job levels, sync state and cumulative observed rewards at the existing reporting cadence. Missing data, reconnects, stale reports and job changes reset rate estimates. Existing login and recovery behavior is unchanged.
+
+After upgrading, deploy companion **0.5.0** and reload **FFXIManager** in already-running sessions to enable the new sync fields and reward counters. Games do not need to be logged out. Rates start after at least one minute of consecutive samples and use up to ten minutes of history; merit/JP rates are reward equivalents, not changes in the stored balance.
+
+Validation: 848 core checks, desktop/dashboard safety smoke checks and all six Lua regression modes passed. The Windows x64 build succeeded. These changes have not yet been installed or validated in a live game; this release is published first for updater testing.
+
 ## 1.0.69
 
 - After confirmed POL-0003 Exit, recognize a stable exact-account Member List and continue the guarded login in the same POL process. Require verified character/world traffic before recording recovery.

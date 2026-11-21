@@ -57,7 +57,7 @@ Open **Bulk actions**, select the accounts, choose **Enable maintain connection*
 ## Character dashboard and appearance
 
 - **Session status.** Cards show the tracked process, connection state, POL start time, session duration, and last successful automatic recovery. **Connected** means the manager has verified game traffic for that character. Older stats are labeled **Last reported**.
-- **Character stats.** View job and master levels, current and maximum HP/MP, EXP, merits, capacity and job points, and Exemplar Point progress toward the next master level. The dashboard shows shared Vana’diel time and moon phase alongside each character’s zone and weather. Use **FFXIAH** on a card to look up that character.
+- **Character stats.** View job and master levels, current and maximum HP/MP, EXP, merits, capacity and job points, and Exemplar Point progress toward the next master level. True job/master progression and effective synced levels appear separately, with remaining points and the correct next level. Rolling hourly reward estimates cover EXP, LP, CP and Exemplar Points, with merit/JP equivalents; the estimates include idle time and reset across stale data or session/job changes. Companion 0.5.0 is required for the new sync and rate fields. The dashboard shows shared Vana’diel time and moon phase alongside each character’s zone and weather. Use **FFXIAH** on a card to look up that character.
 - **Appearance.** Drag cards to reorder them. Choose a UI or FFXI artwork theme, toggle **Landscape cards**, or use **Shuffle artwork** to rotate the card backgrounds.
 
 <details>
