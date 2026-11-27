@@ -1,5 +1,38 @@
 # Release notes
 
+## 1.0.76
+
+- Confirm connectivity recovery with three short successful requests spaced two seconds apart (about six to nine seconds on the dashboard timer). Ordinary healthy checks continue immediately; repeated failed requests retain bounded backoff. No prolonged stability wait is added to a normal restart.
+
+Validation: 875 core checks and desktop/dashboard safety checks passed, and the Windows x64 build succeeded. The preceding 1.0.75 correction was installed and a maintained account was verified online with the other running sessions preserved. The shorter 1.0.76 timing is covered by isolated tests; this exact release has not yet been installed or tested through a live outage. No healthy game or live network was deliberately disrupted.
+
+## 1.0.75
+
+- Fix maintained recovery getting stuck at 1/3 internet checks after a client exits. Connectivity waits now use their five-second polling deadline instead of inheriting the 15–30 second login retry cooldown.
+- Preserve consecutive healthy probes across normal scheduler delays; failures still reset the count and long observation gaps still require fresh confirmation. Healthy first checks continue immediately without inventing an outage.
+- Preserve credential-rejection limits, maintenance policy, other-terminal protection and normal login input guards.
+
+## 1.0.74
+
+- Retain the last valid hourly rate and ETA through brief reporting gaps instead of repeatedly returning to gathering samples. Label retained estimates with their last update time.
+- Recalculate only on new reward reports, using a ten-minute history and three-minute time-based smoothing to reduce jumps while including idle time. Cumulative counters bridge short missing-report intervals.
+- New sessions, logout and job changes reset estimates. Counter resets or gaps longer than ten minutes rebaseline observations while clearly retaining the prior estimate until new samples are available.
+
+## 1.0.73
+
+- Size the Progression panel to its contents instead of stretching its background across the account card. Use a compact keyboard-accessible disclosure with no heavy header box or backing bar; keep the header and table aligned and cap the expanded width.
+
+## 1.0.72
+
+- Start each character’s Progression section collapsed to keep cards compact. Expand it to view balances, rates and ETA; ongoing stats refreshes preserve the open/closed choice.
+- Show actual job/master levels alongside explicitly labeled synced levels. Progression targets and ETA continue to use true levels.
+
+## 1.0.71
+
+- Separate character status, session timing and progression with an aligned progression table showing balances, targets, hourly earnings and estimated time to the next level.
+- Label effective levels as Synced without duplicating the job line. EXP and Exemplar targets continue to use true character levels.
+- Estimate next-level time from consecutive recent reward samples; hide estimates for stale, missing or zero-rate data and show capped progression explicitly. Merit and JP rates remain reward equivalents. No login, recovery or game reporting changes.
+
 ## 1.0.70
 
 - Show true job/master progression separately from effective level-sync levels. Resolve the Exemplar target from its authoritative requirement instead of adding one to the synced master level. Display remaining EXP/Exemplar Points and the level-99 EXP cap.
